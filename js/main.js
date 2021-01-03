@@ -86,13 +86,15 @@ function showerror(inputValue,initialBase){
       <div class="modal-body">
           <p><b>${inputValue}</b> is not a <b>${base}</b> number.<br> Please Check the Number &     Tryagain!!</p> 
       </div>
-      
+      <div class="modal-footer">    
+          <button type="button" class="btn btn-success" data-dismiss="modal" onclick="window.location.reload()";>Try Again</button>
+      </div>
       </div>
   </div>
   </div>;`
   modelbody2.innerHTML = dataHtml;
   $('#staticBackdrop').modal('show');
-    window.location.reload()
+    
 }
 
 function calculate_answer(){
