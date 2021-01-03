@@ -55,7 +55,7 @@ class Conversion{
 function validate(inputValue,initialBase){
     if(initialBase==-1){
         alert("No Input Found!! Please check it & Try Again.")
-        window.location.reload()
+        location.reload();
     }
     if(initialBase > 2){
         for(i=0;i<inputValue.length;i++){
@@ -87,7 +87,7 @@ function showerror(inputValue,initialBase){
           <p><b>${inputValue}</b> is not a <b>${base}</b> number.<br> Please Check the Number &     Tryagain!!</p> 
       </div>
       <div class="modal-footer">    
-          <button type="button" class="btn btn-success" data-dismiss="modal" onclick="window.location.reload()";>Try Again</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal" onclick="location.reload(); return false;";>Try Again</button>
       </div>
       </div>
   </div>
