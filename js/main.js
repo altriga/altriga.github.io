@@ -56,6 +56,7 @@ function validate(inputValue,initialBase){
     if(initialBase==-1){
         alert("No Input Found!! Please check it & Try Again.")
         location.reload();
+        return false;
     }
     if(initialBase > 2){
         for(i=0;i<inputValue.length;i++){
