@@ -92,6 +92,7 @@ function showerror(inputValue,initialBase){
   </div>;`
   modelbody2.innerHTML = dataHtml;
   $('#staticBackdrop').modal('show');
+    window.location.reload()
 }
 
 function calculate_answer(){
