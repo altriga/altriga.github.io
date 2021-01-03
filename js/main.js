@@ -54,9 +54,21 @@ class Conversion{
 
 function validate(inputValue,initialBase){
     if(initialBase==-1){
-        alert("No Input Found!! Please check it & Try Again.")
-        location.reload();
-        return false;
+        const modelbody2 = document.getElementById('staticBackdrop')
+        let dataHtml =`
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-body">
+                <p><b>Multiple Inputs are Empty!!</b> <br> Please Try-again!!</p> 
+            </div>
+            <div class="modal-footer">    
+                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="window.location.reload()";>Try Again</button>
+            </div>
+            </div>
+        </div>
+        </div>;`
+        modelbody2.innerHTML = dataHtml;
+        $('#staticBackdrop').modal('show');
     }
     if(initialBase > 2){
         for(i=0;i<inputValue.length;i++){
