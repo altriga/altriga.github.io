@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 	<title>Altriga - Digital Computation</title>
 	<meta charset="UTF-8">
 	 <!-- SEO Meta Tags -->
@@ -15,30 +16,10 @@
 	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
 	<meta property="og:url" content="https://altriga.github.io/" /> <!-- where do you want your post to link to -->
 	<meta property="og:type" content="article" />
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	<title>Altriga - Digital Computation</title>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="images/icons/icon.ico"/>
@@ -60,9 +41,38 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+
+
+<script type="text/javascript">
+    function isNumberKey(txt, evt) {
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode == 46) {
+        //Check if the text already contains the . character
+        if (txt.value.indexOf('.') === -1) {
+          return true;
+        } else {
+          return false;
+        }
+      } 
+      else if(charCode > 48 && charCode < 58){
+          return true;
+      }
+      else if(charCode > 64 && charCode <71)
+      {
+          return true
+      }
+      else if(charCode > 96 && charCode <103)
+      {
+          return true
+      }
+      return false;
+    }
+  </script>
 </head>
 <body>
 
+	<div class="modal fade" id="staticBackdrop" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	</div>
 
 	<div class="container-contact100">
 		<div class="wrap-contact100">
@@ -73,7 +83,7 @@
 
 				<div class="wrap-input100 validate-input" data-validate="Value Required">
 					<span class="label-input100">Input Value</span>
-					<input class="input100" type="text" name="name" placeholder="Enter Value..." id="inputValue" style="text-transform:uppercase" >
+					<input class="input100" type="text" name="name" placeholder="Enter Value..." id="inputValue" onkeypress="return isNumberKey(this, event);" oninput="this.value = this.value.toUpperCase()">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -131,13 +141,16 @@
 				</div>-->
 
 			</form>
-			<div id="answer_here">
-			<div class="wrap-input100 validate-input" data-validate = "Message is required">
-				<span class="label-input100"></span>
-				<textarea class="input100" name="message" placeholder="Your Answer will appear here!!&#10;&#10;[If Website Crashes... Refresh it & Check the Input Expression and its Input Base!!]" disabled></textarea>
+			
+			<div style="padding: 10px;"></div>
+			<div class="wrap-input100 validate-input">
+				<span class="label-input100">Answer</span>
+				<div id="answer_here">
+				<div class="input100" id="answer" style="color:gray; padding: 5px;" >Your Answer will appear here!!</div>
+				</div>
 				<span class="focus-input100"></span>
 			</div>
-			</div>
+		
 
 			<div class="" data-validate="Value Required">
 				<span class="label-input100">Developed by <a href="https://github.com/imabhisht">Abhisht.</a></span>
