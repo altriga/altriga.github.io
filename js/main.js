@@ -51,25 +51,68 @@ class Conversion{
     }
 
 }
+
+function validate(inputValue,initialBase){
+    if(initialBase==-1){
+        alert("No Input Found!! Please check it & Try Again.")
+        window.location.reload()
+    }
+    if(initialBase > 2){
+        for(i=0;i<inputValue.length;i++){
+            m = (parseInt((inputValue[i]),16))/initialBase;
+            if(m>1){showerror(inputValue,initialBase);return false}
+    }
+    }
+    else if(initialBase == 2){
+        for(i=0;i<inputValue.length;i++){
+            m = (parseInt((inputValue[i]),16))/1;
+            if(m>1){showerror(inputValue,initialBase);return false}
+    }
+}
+return true;
+}
+
+function showerror(inputValue,initialBase){
+    base = ''
+    if(initialBase==2){base="Binary"}
+    else if(initialBase==8){base="Octal"}
+    else if(initialBase==10){base="Decimal"}
+    else if(initialBase==16){base="Hexa-Decimal"}
+    
+    const modelbody2 = document.getElementById('staticBackdrop')
+  let dataHtml =`
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      <div class="modal-body">
+          <p><b>${inputValue}</b> is not a <b>${base}</b> number.<br> Please Check the Number &     Tryagain!!</p> 
+      </div>
+      
+      </div>
+  </div>
+  </div>;`
+  modelbody2.innerHTML = dataHtml;
+  $('#staticBackdrop').modal('show');
+}
+
 function calculate_answer(){
     var inputValue = document.getElementById("inputValue").value;
     var initialBase = parseInt(document.getElementById("initialBase").value);
     var finalBase = parseInt(document.getElementById("finalBase").value);
     console.log((inputValue),(initialBase),(finalBase));
+    if(validate(inputValue,initialBase)){
     var echo = new Conversion(inputValue,initialBase,finalBase);
-    
-
     var alpha = echo.Calculate()
-    console.log(alpha)
+    alpha = "["+alpha+"]"+ (finalBase.toString()).sub()+ " ⇌ "+"["+inputValue+"]"+ (initialBase.toString()).sub()
+
+    //document.getElementById('answer').value = alpha = "["+inputValue+"]"+ (initialBase.toString()).sub() + " ⇌ " + "["+alpha+"]"+ (finalBase.toString()).sub();
     const modelbody = document.getElementById('answer_here');
     let html_make = 
     `
-    <div class="wrap-input100 validate-input" data-validate = "Message is required">
-				<span class="label-input100"></span>
-				<textarea class="input100" name="message" placeholder="" disabled>Answer is: ${alpha} \n\n[If Website Crashes... Refresh it & Check the Input Expression and its Input Base!!]</textarea>
-				<span class="focus-input100"></span>
-	</div>
+    <div class="input100" id="answer" style="padding: 5px;" >${alpha}</div>
     `;
     modelbody.innerHTML = html_make;
+    }
+    
+    
 }
 
