@@ -46,6 +46,7 @@
 <script type="text/javascript">
     function isNumberKey(txt, evt) {
       var charCode = (evt.which) ? evt.which : evt.keyCode;
+	console.log("User Pressed: ",charCode);
       if (charCode == 46) {
         //Check if the text already contains the . character
         if (txt.value.indexOf('.') === -1) {
@@ -78,7 +79,7 @@
 		<div class="wrap-contact100">
 			<form class="contact100-form validate-form">
 				<span class="contact100-form-title">
-					Try Altriga!
+					Try Altriga Web!
 				</span>
 
 				<div class="wrap-input100 validate-input" data-validate="Value Required">
